@@ -10,15 +10,18 @@ Clone this repository and run `tsc` to compile (you need TypeScript installed, `
 The Rockstar SocialClub API `scapi.rockstar.com` can not be accessed without proper authentication with Rockstar SocialClub. 
 This API provides an authentication server (Server) and REST server (Wrapper) around the official Rockstar SocialClub.
 
-# Server
+## Server
 The `Server` in this repository will provide new endpoints that can be called to retrieve data from the official Rockstar SocialClub API. The `Server` is basically node between you and the SocialClub server.
-You can start the server with `npm run server`. You will see a chromium browser popup (puppeteer) with the login page of SocialClub. After manually logging in, a new tab will open automatically. Do **not** touch this browser instance anymore.
+
+You can start the server with `npm run server`. You will see a chromium browser popup (puppeteer) with the login page of SocialClub. After manually logging in, a new tab will open automatically.
+
+Do **not** touch this browser instance anymore.
 From now on, you are ready to go! Endpoints can not be access via `http://localhost:3000/{endpoint}` (`https` not supported yet).
 
-# Wrapper
+## Wrapper
 Accessing the `Server` with a browser or an application like postman is not the most desirable. A custom wrapper can be made to access the `Server`. Any programming language can be used, but this repository already contains a wrapper build in NodeJS (TypeScript). Examples can be found in the `Example` folder.
 
-# Example
+## Examples
 Make sure the server is running, and start the example (please change the username to your username). The amount of commands is still very limited.
 Example:
 ```
@@ -70,5 +73,5 @@ Weapon of choice: Marksman Rifle MK II
 1172000
 ```
 
-#Contributing
+## Contributing
 Please send a PR! I'd love to have a look at that!
