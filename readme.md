@@ -1,19 +1,24 @@
-#SocialClub
-WARNING: I am NOT affiliated with Rockstar Games or SocialClub in any way. Use on your own risk.
+# Red Dead Redemption 2 SocialClub API
+WARNING: The original mantainer, nor I am affiliated with Rockstar Games or SocialClub in any way. Use this API at your own risk.
 WARNING: This is a work in progress
 
-#Installation
+<!---
+# Installation
 Clone this repository and run `tsc` to compile (you need TypeScript installed, `npm i -g typescript`).
+-->
 
-#Server
-The GTA V SocialClub server has a terriblem, undocumented API. The `Server` in this repository has very clean endpoints, and will be documented when I have the time. The server is basicly node between you and the SocialClub server.
-You can start the server with `npm run server`. You will see a chromium browser popup with the login page of SocialClub. After manually logging in, a new tab will open automaticly. Please do not touch this browser instance anymore.
-From now on, you are ready to go! Endpoints can not be access via `http://localhost:3000/{endpoint}` (no `https` support yet).
+The Rockstar SocialClub API `scapi.rockstar.com` can not be accessed without proper authentication with the Rockstar SocialClub services. 
+This API provides an authentication server (Server) and REST server (Wrapper) around the official Rockstar SocialClub.
 
-#Wrapper
-Accessing the Server with a webbrowser or an application like postman is of course not desirable. You will need some sort of wrapper for the server. You can make this is any programming language, but his module contains a wrapper build for NodeJS (also in TypeScript). An example command line application can be found in the `Example` folder.
+# Wrapper
+Accessing the `Server` with a browser or an application like postman is not desirable. A custom wrapper can be made to access the `Server`. Any programming language can be used, but this repository already contains a wrapper build in NodeJS (TypeScript). Examples can be found in the `Example` folder.
 
-#Example
+# Server
+The `Server` in this repository have very clean and clear endpoints. The server is basically node between you and the SocialClub server.
+You can start the server with `npm run server`. You will see a chromium browser popup (puppeteer) with the login page of SocialClub. After manually logging in, a new tab will open automatically. Do **not** touch this browser instance anymore.
+From now on, you are ready to go! Endpoints can not be access via `http://localhost:3000/{endpoint}` (`https` not supported yet).
+
+# Example
 Make sure the server is running, and start the example (please change the username to your username). The amount of commands is still very limited.
 Example:
 ```
