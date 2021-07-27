@@ -4,6 +4,8 @@ import { resolve } from 'path';
 import { readdir } from 'fs';
 import EndpointStore from './EndpointStore';
 import Request from './Request';
+import 'dotenv/config'
+
 
 export default class Server extends EventEmitter {
   public routes = new EndpointStore();

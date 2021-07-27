@@ -39,7 +39,16 @@ export default class Browser {
   private async init(launchOptions: puppeteer.LaunchOptions) {
     this.browser = await puppeteer.launch({ headless: false, ...launchOptions });
     this.reloadPage = await this.browser.newPage();
-    await this.reloadPage.goto('https://signin.rockstargames.com/signin/user-form?cid=socialclub', { waitUntil: 'networkidle2' });
+    await this.reloadPage
+                .goto('https://signin.rockstargames.com/signin/user-form?cid=socialclub', { waitUntil: 'networkidle2' })
+                .then(async () => {
+                  await this.reloadPage.type('input[name="email"][type="email"]', process.env.SC_USERNAME || 'NO_USERNAME' );
+                  await this.reloadPage.type('input[name="password"][type="password"]', process.env.SC_PASSWORD || 'NO_PASSWORD').then(async () => {
+                    this.wait(15000);
+                    await this.reloadPage.keyboard.press('Enter');
+                  });
+                })
+
     await this.wait(15000).then(() => this.waitForLogin());
   }
 
