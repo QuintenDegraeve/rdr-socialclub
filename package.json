@@ -2,7 +2,7 @@
   "name": "socialclub",
   "version": "1.0.0",
   "description": "SocialClub Server/Wrapper/Bot/Docs all in one repository",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
@@ -10,18 +10,16 @@
     "docs:start": "node ./dist/Docs/index.js --start",
     "docs:build": "node ./dist/Docs/index.js --build",
     "server": "node ./dist/Server/index.js --start",
-    "bot": "node ./dist/Bot/index.js"
-  },
-  "author": {
-    "name": "Dennis Vriend",
-    "email": "dennisvriend@dennisvriend.nl",
-    "url": "https://socialclub.dennisvriend.nl/"
+    "bot": "node ./dist/Bot/index.js",
+    "dev:server": "node --loader ts-node/esm --trace-warnings ./Server/index.ts --start",
+    "dev:example": " node --loader ts-node/esm --trace-warnings ./Example/index.ts"
   },
   "license": "Apache 2.0",
   "devDependencies": {
     "@types/node": "^10.12.18",
     "@types/node-fetch": "^2.1.4",
-    "@types/puppeteer": "^1.11.2"
+    "@types/puppeteer": "^1.11.2",
+    "ts-node": "^10.1.0"
   },
   "dependencies": {
     "node-fetch": "^2.3.0",
