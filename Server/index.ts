@@ -22,7 +22,7 @@ export default class Server extends EventEmitter {
     return new Promise((res, rej) => {
       readdir(path, (err, files) => {
         if(err) return rej(err);
-        for(const file of files.filter(f => f.endsWith('.js'))) {
+        for(const file of files.filter(f => f.endsWith('.ts'))) {
           const Routes = require(resolve(`${path}/${file}`)).default;
           const routes = new Routes(this.execute);
           this.routes.addRoutes(routes._routes.map((r: any) => {
@@ -32,7 +32,7 @@ export default class Server extends EventEmitter {
           }))
           this.emit('routesLoaded', routes.constructor.name);
         }
-        res();
+        res(0);
       })
     })
   }
@@ -114,7 +114,7 @@ export default class Server extends EventEmitter {
 }
 
 /* You can either require the Server class in your own application, or use the Command Line Interface  */
-if(process.argv[1] === resolve(__dirname, './index.js') && process.argv.length > 2) {
+if(process.argv[1] === resolve(__dirname, './index.ts')) {
   const port = process.argv.includes('--port') ? Number(process.argv[process.argv.indexOf('--port') + 1]) : 3000;
   const path = process.argv.includes('--endpoints') ? process.argv[process.argv.indexOf('--endpoints') + 1] : resolve(__dirname, './Endpoints');
   const server = new Server(port, path);
